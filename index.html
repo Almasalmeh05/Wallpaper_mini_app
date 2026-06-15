@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="sv">
 <head>
 <meta charset="UTF-8">
-<title>Gratis Wallpapers</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Wallpaper Hub</title>
 
 <script src="//libtl.com/sdk.js"
 data-zone="11148451"
@@ -11,19 +12,71 @@ data-sdk="show_11148451">
 
 <style>
 body{
-font-family:Arial;
-text-align:center;
+margin:0;
+font-family:Arial,sans-serif;
 background:#111;
 color:white;
+text-align:center;
+}
+
+header{
+background:#1a1a1a;
+padding:15px;
+font-size:28px;
+font-weight:bold;
+}
+
+select{
+width:90%;
+padding:12px;
+margin:15px;
+border-radius:10px;
+font-size:16px;
 }
 
 img{
-width:300px;
+width:90%;
+max-width:400px;
 border-radius:15px;
-margin:10px;
+margin-top:10px;
+box-shadow:0 0 15px rgba(255,255,255,.2);
 }
+
+.buttons{
+margin:20px;
+}
+
 button{
-padding:15px 30px;
+padding:12px 20px;
+margin:5px;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+.next{
+background:#2196f3;
+color:white;
+}
+
+.prev{
+background:#555;
+color:white;
+}
+
+.ad{
+background:#28a745;
+color:white;
+}
+
+.download{
+background:#ff9800;
+color:white;
+}
+
+.info{
+margin:15px;
 font-size:18px;
 }
 </style>
@@ -31,15 +84,155 @@ font-size:18px;
 
 <body>
 
-<h1> Gratis Wallpapers</h1>
+<header> Wallpaper Hub</header>
 
-<img src="https://picsum.photos/400/800?1">
+<select id="category" onchange="changeCategory()">
+<option value="gaming"> Gaming</option>
+<option value="cars"> Cars</option>
+<option value="nature"> Nature</option>
+<option value="space"> Space</option>
+<option value="ai"> AI</option>
+<option value="supercars"> Supercars</option>
+</select>
 
-<br><br>
+<div class="info">
+Wallpaper <span id="counter">1</span>/10
+</div>
 
-<button onclick="show_11148451()">
-Lås upp nästa wallpaper
-</button>
+<img id="wallpaper" src="">
+
+<div class="buttons">
+<button class="prev" onclick="prevWallpaper()">⬅ Föregående</button>
+<button class="next" onclick="nextWallpaper()">Nästa ➡</button>
+</div>
+
+<div class="buttons">
+<button class="ad" onclick="show_11148451()"> Visa annons</button>
+<a id="downloadLink" href="" download>
+<button class="download">⬇ Ladda ner</button>
+</a>
+</div>
+
+<script>
+
+const wallpapers = {
+
+gaming:[
+"https://picsum.photos/seed/g1/500/900",
+"https://picsum.photos/seed/g2/500/900",
+"https://picsum.photos/seed/g3/500/900",
+"https://picsum.photos/seed/g4/500/900",
+"https://picsum.photos/seed/g5/500/900",
+"https://picsum.photos/seed/g6/500/900",
+"https://picsum.photos/seed/g7/500/900",
+"https://picsum.photos/seed/g8/500/900",
+"https://picsum.photos/seed/g9/500/900",
+"https://picsum.photos/seed/g10/500/900"
+],
+
+cars:[
+"https://picsum.photos/seed/c1/500/900",
+"https://picsum.photos/seed/c2/500/900",
+"https://picsum.photos/seed/c3/500/900",
+"https://picsum.photos/seed/c4/500/900",
+"https://picsum.photos/seed/c5/500/900",
+"https://picsum.photos/seed/c6/500/900",
+"https://picsum.photos/seed/c7/500/900",
+"https://picsum.photos/seed/c8/500/900",
+"https://picsum.photos/seed/c9/500/900",
+"https://picsum.photos/seed/c10/500/900"
+],
+
+nature:[
+"https://picsum.photos/seed/n1/500/900",
+"https://picsum.photos/seed/n2/500/900",
+"https://picsum.photos/seed/n3/500/900",
+"https://picsum.photos/seed/n4/500/900",
+"https://picsum.photos/seed/n5/500/900",
+"https://picsum.photos/seed/n6/500/900",
+"https://picsum.photos/seed/n7/500/900",
+"https://picsum.photos/seed/n8/500/900",
+"https://picsum.photos/seed/n9/500/900",
+"https://picsum.photos/seed/n10/500/900"
+],
+
+space:[
+"https://picsum.photos/seed/s1/500/900",
+"https://picsum.photos/seed/s2/500/900",
+"https://picsum.photos/seed/s3/500/900",
+"https://picsum.photos/seed/s4/500/900",
+"https://picsum.photos/seed/s5/500/900",
+"https://picsum.photos/seed/s6/500/900",
+"https://picsum.photos/seed/s7/500/900",
+"https://picsum.photos/seed/s8/500/900",
+"https://picsum.photos/seed/s9/500/900",
+"https://picsum.photos/seed/s10/500/900"
+],
+
+ai:[
+"https://picsum.photos/seed/a1/500/900",
+"https://picsum.photos/seed/a2/500/900",
+"https://picsum.photos/seed/a3/500/900",
+"https://picsum.photos/seed/a4/500/900",
+"https://picsum.photos/seed/a5/500/900",
+"https://picsum.photos/seed/a6/500/900",
+"https://picsum.photos/seed/a7/500/900",
+"https://picsum.photos/seed/a8/500/900",
+"https://picsum.photos/seed/a9/500/900",
+"https://picsum.photos/seed/a10/500/900"
+],
+
+supercars:[
+"https://picsum.photos/seed/sc1/500/900",
+"https://picsum.photos/seed/sc2/500/900",
+"https://picsum.photos/seed/sc3/500/900",
+"https://picsum.photos/seed/sc4/500/900",
+"https://picsum.photos/seed/sc5/500/900",
+"https://picsum.photos/seed/sc6/500/900",
+"https://picsum.photos/seed/sc7/500/900",
+"https://picsum.photos/seed/sc8/500/900",
+"https://picsum.photos/seed/sc9/500/900",
+"https://picsum.photos/seed/sc10/500/900"
+]
+
+};
+
+let currentCategory="gaming";
+let currentIndex=0;
+
+function updateWallpaper(){
+const img=wallpapers[currentCategory][currentIndex];
+
+document.getElementById("wallpaper").src=img;
+document.getElementById("downloadLink").href=img;
+document.getElementById("counter").innerText=currentIndex+1;
+}
+
+function nextWallpaper(){
+currentIndex++;
+if(currentIndex>=10){
+currentIndex=0;
+}
+updateWallpaper();
+}
+
+function prevWallpaper(){
+currentIndex--;
+if(currentIndex<0){
+currentIndex=9;
+}
+updateWallpaper();
+}
+
+function changeCategory(){
+currentCategory=document.getElementById("category").value;
+currentIndex=0;
+updateWallpaper();
+}
+
+updateWallpaper();
+
+</script>
 
 </body>
 </html>
