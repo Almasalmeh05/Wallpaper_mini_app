@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wallpaper Hub</title>
+
+<style>
+body{
+margin:0;
+background:#111;
+color:white;
+font-family:Arial;
+}
+
+header{
+text-align:center;
+padding:20px;
+font-size:28px;
+font-weight:bold;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+padding:10px;
+}
+
+.card{
+background:#222;
+border-radius:10px;
+overflow:hidden;
+}
+
+.card img{
+width:100%;
+display:block;
+}
+
+button{
+width:100%;
+border:none;
+padding:12px;
+background:#0088cc;
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ Wallpaper Hub
+</header>
+
+<div class="gallery">
+
+<div class="card">
+<img src="https://picsum.photos/300/600?1">
+<button>Ladda ner</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/600?2">
+<button>Ladda ner</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/600?3">
+<button>Ladda ner</button>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/300/600?4">
+<button>Ladda ner</button>
+</div>
+
+</div>
+
+</body>
+</html>
