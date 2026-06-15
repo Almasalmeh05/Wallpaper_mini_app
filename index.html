@@ -2,82 +2,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wallpaper Hub</title>
+<title>Gratis Wallpapers</title>
+
+<script src="//libtl.com/sdk.js"
+data-zone="11148451"
+data-sdk="show_11148451">
+</script>
 
 <style>
 body{
-margin:0;
+font-family:Arial;
+text-align:center;
 background:#111;
 color:white;
-font-family:Arial;
 }
 
-header{
-text-align:center;
-padding:20px;
-font-size:28px;
-font-weight:bold;
+img{
+width:300px;
+border-radius:15px;
+margin:10px;
 }
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
-padding:10px;
-}
-
-.card{
-background:#222;
-border-radius:10px;
-overflow:hidden;
-}
-
-.card img{
-width:100%;
-display:block;
-}
-
 button{
-width:100%;
-border:none;
-padding:12px;
-background:#0088cc;
-color:white;
-cursor:pointer;
+padding:15px 30px;
+font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
- Wallpaper Hub
-</header>
+<h1> Gratis Wallpapers</h1>
 
-<div class="gallery">
+<img src="https://picsum.photos/400/800?1">
 
-<div class="card">
-<img src="https://picsum.photos/300/600?1">
-<button>Ladda ner</button>
-</div>
+<br><br>
 
-<div class="card">
-<img src="https://picsum.photos/300/600?2">
-<button>Ladda ner</button>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/300/600?3">
-<button>Ladda ner</button>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/300/600?4">
-<button>Ladda ner</button>
-</div>
-
-</div>
+<button onclick="show_11148451()">
+Lås upp nästa wallpaper
+</button>
 
 </body>
 </html>
