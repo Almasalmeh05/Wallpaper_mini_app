@@ -96,7 +96,7 @@ font-size:18px;
 </select>
 
 <div class="info">
-Wallpaper <span id="counter">1</span>/10
+Wallpaper <span id="counter">1</span>/<span id="total">0</span>
 </div>
 
 <img id="wallpaper" src="">
@@ -131,16 +131,12 @@ gaming:[
 ],
 
 cars:[
-"https://picsum.photos/seed/c1/500/900",
-"https://picsum.photos/seed/c2/500/900",
-"https://picsum.photos/seed/c3/500/900",
-"https://picsum.photos/seed/c4/500/900",
-"https://picsum.photos/seed/c5/500/900",
-"https://picsum.photos/seed/c6/500/900",
-"https://picsum.photos/seed/c7/500/900",
-"https://picsum.photos/seed/c8/500/900",
-"https://picsum.photos/seed/c9/500/900",
-"https://picsum.photos/seed/c10/500/900"
+"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_1.png",
+"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_2.png",
+"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_3.png",
+"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_4.png",
+"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_5.png",
+"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_6.png"
 ],
 
 nature:[
@@ -200,7 +196,7 @@ supercars:[
 let currentCategory="gaming";
 let currentIndex=0;
 
-function updateWallpaper(){
+function updateWallpaper(){ 
 const img=wallpapers[currentCategory][currentIndex];
 
 document.getElementById("wallpaper").src=img;
@@ -210,7 +206,7 @@ document.getElementById("counter").innerText=currentIndex+1;
 
 function nextWallpaper(){
 currentIndex++;
-if(currentIndex>=10){
+if(currentIndex>=wallpapers[currentCategory].length)
 currentIndex=0;
 }
 updateWallpaper();
@@ -219,7 +215,7 @@ updateWallpaper();
 function prevWallpaper(){
 currentIndex--;
 if(currentIndex<0){
-currentIndex=9;
+currentIndex=wallpapers[currentCategory].length-1;
 }
 updateWallpaper();
 }
