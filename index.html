@@ -118,111 +118,95 @@ Wallpaper <span id="counter">1</span>/<span id="total">0</span>
 const wallpapers = {
 
 gaming:[
-"https://picsum.photos/seed/g1/500/900",
-"https://picsum.photos/seed/g2/500/900",
-"https://picsum.photos/seed/g3/500/900",
-"https://picsum.photos/seed/g4/500/900",
-"https://picsum.photos/seed/g5/500/900",
-"https://picsum.photos/seed/g6/500/900",
-"https://picsum.photos/seed/g7/500/900",
-"https://picsum.photos/seed/g8/500/900",
-"https://picsum.photos/seed/g9/500/900",
-"https://picsum.photos/seed/g10/500/900"
+"./wallpapers/gaminig/wallpaper_1_1.png",
+"./wallpapers/gaminig/wallpaper_1_2.png",
+"./wallpapers/gaminig/wallpaper_1_3.png",
+"./wallpapers/gaminig/wallpaper_1_4.png",
+"./wallpapers/gaminig/wallpaper_1_5.png",
+"./wallpapers/gaminig/wallpaper_1_6.png"
 ],
 
 cars:[
-"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_1.png",
-"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_2.png",
-"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_3.png",
-"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_4.png",
-"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_5.png",
-"https://raw.githubusercontent.com/Almasalmeh05/Wallpaper_mini_app/main/wallpapers/cars/wallpaper_2_6.png"
+"./wallpapers/cars/wallpaper_2_1.png",
+"./wallpapers/cars/wallpaper_2_2.png",
+"./wallpapers/cars/wallpaper_2_3.png",
+"./wallpapers/cars/wallpaper_2_4.png",
+"./wallpapers/cars/wallpaper_2_5.png",
+"./wallpapers/cars/wallpaper_2_6.png"
 ],
 
 nature:[
-"https://picsum.photos/seed/n1/500/900",
-"https://picsum.photos/seed/n2/500/900",
-"https://picsum.photos/seed/n3/500/900",
-"https://picsum.photos/seed/n4/500/900",
-"https://picsum.photos/seed/n5/500/900",
-"https://picsum.photos/seed/n6/500/900",
-"https://picsum.photos/seed/n7/500/900",
-"https://picsum.photos/seed/n8/500/900",
-"https://picsum.photos/seed/n9/500/900",
-"https://picsum.photos/seed/n10/500/900"
+"./wallpapers/nature/wallpaper_3_1.png",
+"./wallpapers/nature/wallpaper_3_2.png",
+"./wallpapers/nature/wallpaper_3_3.png",
+"./wallpapers/nature/wallpaper_3_4.png",
+"./wallpapers/nature/wallpaper_3_5.png",
+"./wallpapers/nature/wallpaper_3_6.png"
 ],
 
 space:[
-"https://picsum.photos/seed/s1/500/900",
-"https://picsum.photos/seed/s2/500/900",
-"https://picsum.photos/seed/s3/500/900",
-"https://picsum.photos/seed/s4/500/900",
-"https://picsum.photos/seed/s5/500/900",
-"https://picsum.photos/seed/s6/500/900",
-"https://picsum.photos/seed/s7/500/900",
-"https://picsum.photos/seed/s8/500/900",
-"https://picsum.photos/seed/s9/500/900",
-"https://picsum.photos/seed/s10/500/900"
+"./wallpapers/space/wallpaper_4_1.png",
+"./wallpapers/space/wallpaper_4_2.png",
+"./wallpapers/space/wallpaper_4_3.png",
+"./wallpapers/space/wallpaper_4_4.png",
+"./wallpapers/space/wallpaper_4_5.png",
+"./wallpapers/space/wallpaper_4_6.png"
 ],
 
 ai:[
-"https://picsum.photos/seed/a1/500/900",
-"https://picsum.photos/seed/a2/500/900",
-"https://picsum.photos/seed/a3/500/900",
-"https://picsum.photos/seed/a4/500/900",
-"https://picsum.photos/seed/a5/500/900",
-"https://picsum.photos/seed/a6/500/900",
-"https://picsum.photos/seed/a7/500/900",
-"https://picsum.photos/seed/a8/500/900",
-"https://picsum.photos/seed/a9/500/900",
-"https://picsum.photos/seed/a10/500/900"
-],
-
-supercars:[
-"https://picsum.photos/seed/sc1/500/900",
-"https://picsum.photos/seed/sc2/500/900",
-"https://picsum.photos/seed/sc3/500/900",
-"https://picsum.photos/seed/sc4/500/900",
-"https://picsum.photos/seed/sc5/500/900",
-"https://picsum.photos/seed/sc6/500/900",
-"https://picsum.photos/seed/sc7/500/900",
-"https://picsum.photos/seed/sc8/500/900",
-"https://picsum.photos/seed/sc9/500/900",
-"https://picsum.photos/seed/sc10/500/900"
+"./wallpapers/ai/wallpaper_5_1.png",
+"./wallpapers/ai/wallpaper_5_2.png",
+"./wallpapers/ai/wallpaper_5_3.png",
+"./wallpapers/ai/wallpaper_5_4.png",
+"./wallpapers/ai/wallpaper_5_5.png",
+"./wallpapers/ai/wallpaper_5_6.png"
 ]
 
 };
 
-let currentCategory="gaming";
-let currentIndex=0;
+let currentCategory = "gaming";
+let currentIndex = 0;
 
-function updateWallpaper(){ 
-const img=wallpapers[currentCategory][currentIndex];
+function updateWallpaper(){
+const list = wallpapers[currentCategory];
 
-document.getElementById("wallpaper").src=img;
-document.getElementById("downloadLink").href=img;
-document.getElementById("counter").innerText=currentIndex+1;
+document.getElementById("wallpaper").src =
+list[currentIndex];
+
+document.getElementById("downloadLink").href =
+list[currentIndex];
+
+document.getElementById("counter").innerText =
+(currentIndex + 1) + "/" + list.length;
 }
 
 function nextWallpaper(){
 currentIndex++;
-if(currentIndex>=wallpapers[currentCategory].length)
-currentIndex=0;
+
+if(currentIndex >= wallpapers[currentCategory].length){
+currentIndex = 0;
 }
+
 updateWallpaper();
 }
 
 function prevWallpaper(){
 currentIndex--;
-if(currentIndex<0){
-currentIndex=wallpapers[currentCategory].length-1;
+
+if(currentIndex < 0){
+currentIndex =
+wallpapers[currentCategory].length - 1;
 }
+
 updateWallpaper();
 }
 
 function changeCategory(){
-currentCategory=document.getElementById("category").value;
-currentIndex=0;
+currentCategory =
+document.getElementById("category").value;
+
+currentIndex = 0;
+
 updateWallpaper();
 }
 
