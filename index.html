@@ -35,12 +35,15 @@ font-size:16px;
 }
 
 img{
-width:90%;
-max-width:400px;
+width:95%;
+max-width:1200px;
+height:auto;
+aspect-ratio:16/9;
+object-fit:cover;
 border-radius:15px;
-margin-top:10px;
-box-shadow:0 0 15px rgba(255,255,255,.2);
+box-shadow:0 0 20px rgba(255,255,255,.15);
 }
+
 
 .buttons{
 margin:20px;
@@ -118,58 +121,57 @@ Wallpaper <span id="counter">1</span>/<span id="total">0</span>
 const wallpapers = {
 
 gaming: [
-  "./wallpapers/gaming/gaming_001.jpg",
-  "./wallpapers/gaming/gaming_002.jpg",
-  "./wallpapers/gaming/gaming_003.jpg",
-  "./wallpapers/gaming/gaming_004.jpg",
-  "./wallpapers/gaming/gaming_005.jpg",
-  "./wallpapers/gaming/gaming_006.jpg"
+"./wallpapers/gaminig/wallpaper_1_1.png",
+"./wallpapers/gaminig/wallpaper_1_2.png",
+"./wallpapers/gaminig/wallpaper_1_3.png",
+"./wallpapers/gaminig/wallpaper_1_4.png",
+"./wallpapers/gaminig/wallpaper_1_5.png",
+"./wallpapers/gaminig/wallpaper_1_6.png"
 ],
 
 cars: [
-  "./wallpapers/cars/cars_001.jpg",
-  "./wallpapers/cars/cars_002.jpg",
-  "./wallpapers/cars/cars_003.jpg",
-  "./wallpapers/cars/cars_004.jpg",
-  "./wallpapers/cars/cars_005.jpg",
-  "./wallpapers/cars/cars_006.jpg"
+"./wallpapers/cars/wallpaper_2_1.png",
+"./wallpapers/cars/wallpaper_2_2.png",
+"./wallpapers/cars/wallpaper_2_3.png",
+"./wallpapers/cars/wallpaper_2_4.png",
+"./wallpapers/cars/wallpaper_2_5.png",
+"./wallpapers/cars/wallpaper_2_6.png"
 ],
 
 nature: [
-  "./wallpapers/nature/nature_001.jpg",
-  "./wallpapers/nature/nature_002.jpg",
-  "./wallpapers/nature/nature_003.jpg",
-  "./wallpapers/nature/nature_004.jpg",
-  "./wallpapers/nature/nature_005.jpg",
-  "./wallpapers/nature/nature_006.jpg"
+"./wallpapers/nature/wallpaper_3_1.png",
+"./wallpapers/nature/wallpaper_3_2.png",
+"./wallpapers/nature/wallpaper_3_3.png",
+"./wallpapers/nature/wallpaper_3_4.png",
+"./wallpapers/nature/wallpaper_3_5.png",
+"./wallpapers/nature/wallpaper_3_6.png"
 ],
 
 space: [
-  "./wallpapers/space/space_001.jpg",
-  "./wallpapers/space/space_002.jpg",
-  "./wallpapers/space/space_003.jpg",
-  "./wallpapers/space/space_004.jpg",
-  "./wallpapers/space/space_005.jpg",
-  "./wallpapers/space/space_006.jpg"
+"./wallpapers/space/wallpaper_4_1.png",
+"./wallpapers/space/wallpaper_4_2.png",
+"./wallpapers/space/wallpaper_4_3.png",
+"./wallpapers/space/wallpaper_4_4.png",
+"./wallpapers/space/wallpaper_4_5.png",
+"./wallpapers/space/wallpaper_4_6.png"
 ],
 
 ai: [
-  "./wallpapers/ai/ai_001.jpg",
-  "./wallpapers/ai/ai_002.jpg",
-  "./wallpapers/ai/ai_003.jpg",
-  "./wallpapers/ai/ai_004.jpg",
-  "./wallpapers/ai/ai_005.jpg",
-  "./wallpapers/ai/ai_006.jpg"
+"./wallpapers/ai/wallpaper_5_1.png",
+"./wallpapers/ai/wallpaper_5_2.png",
+"./wallpapers/ai/wallpaper_5_3.png",
+"./wallpapers/ai/wallpaper_5_4.png",
+"./wallpapers/ai/wallpaper_5_5.png",
+"./wallpapers/ai/wallpaper_5_6.png"
 ],
 
 supercars: [
-  "./wallpapers/supercars/supercars_001.jpg",
-  "./wallpapers/supercars/supercars_002.jpg",
-  "./wallpapers/supercars/supercars_003.jpg",
-  "./wallpapers/supercars/supercars_004.jpg",
-  "./wallpapers/supercars/supercars_005.jpg",
-  "./wallpapers/supercars/supercars_006.jpg"
-]
+"./wallpapers/supercars/wallpaper_6_1.png",
+"./wallpapers/supercars/wallpaper_6_2.png",
+"./wallpapers/supercars/wallpaper_6_3.png",
+"./wallpapers/supercars/wallpaper_6_4.png",
+"./wallpapers/supercars/wallpaper_6_5.png",
+"./wallpapers/supercars/wallpaper_6_6.png"
 ]
 
 };
@@ -187,7 +189,10 @@ document.getElementById("downloadLink").href =
 list[currentIndex];
 
 document.getElementById("counter").innerText =
-(currentIndex + 1) + "/" + list.length;
+currentIndex + 1;
+
+document.getElementById("total").innerText =
+list.length; 
 }
 
 function nextWallpaper(){
@@ -197,6 +202,12 @@ if(currentIndex >= wallpapers[currentCategory].length){
 currentIndex = 0;
 }
 
+currentIndex =
+Math.floor(
+Math.random() *
+wallpapers[currentCategory].length
+);
+  
 updateWallpaper();
 }
 
